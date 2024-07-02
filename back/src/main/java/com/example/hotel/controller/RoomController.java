@@ -6,7 +6,7 @@ import com.example.hotel.model.BookedRoom;
 import com.example.hotel.model.Room;
 import com.example.hotel.response.BookingResponse;
 import com.example.hotel.response.RoomResponse;
-import com.example.hotel.service.BookingService;
+import com.example.hotel.service.IBookingService;
 import com.example.hotel.service.IRoomService;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -32,7 +32,7 @@ import java.util.Optional;
 @RequestMapping("/rooms")
 public class RoomController {
     private final IRoomService roomService;
-    private final BookingService bookingService;
+    private final IBookingService bookingService;
 
     @PostMapping("/add/new-room")
     @PreAuthorize("hasRole('ROLE_ADMIN')")

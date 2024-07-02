@@ -33,7 +33,7 @@ public class RoomControllerTest {
 
     @Test
     public void testGetRoomById() throws Exception {
-        long userId = 4L;
+        long userId = 22L;
 
         ResultActions result = mvc.perform(get("/rooms/room/" + userId));
 
@@ -54,12 +54,12 @@ public class RoomControllerTest {
                 .with(user("admin").roles("ADMIN")));
 
         result.andExpect(status().isCreated())
-                .andExpect(header().string("Location", "http://localhost:8080/rooms/room/9"));
+                .andExpect(header().string("Location", "http://localhost:8080/rooms/room/24"));
     }
 
     @Test
     public void testUpdateRoom() throws Exception {
-        long roomId = 4L;
+        long roomId = 22L;
         byte[] photo = "some content".getBytes();
         String photoBase64 = Base64.getEncoder().encodeToString(photo);
 
@@ -85,7 +85,7 @@ public class RoomControllerTest {
 
     @Test
     public void testDeleteRoom() throws Exception {
-        long roomId = 8L;
+        long roomId = 22L;
 
         ResultActions result = mvc.perform(multipart("/rooms/delete/room/" + roomId)
                 .with(user("admin").roles("ADMIN"))
